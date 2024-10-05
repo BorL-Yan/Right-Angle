@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ObjectController : MonoBehaviour
 {
@@ -77,6 +74,7 @@ public class ObjectController : MonoBehaviour
         while (Timer < time)
         {
             this.gameObject.transform.rotation=Quaternion.Euler(Vector3.Lerp(toRotation, m_fromTheRightAngle, Timer/time));
+            //Color Cange
             _material.SetColor("_Color", Color.Lerp(m_startColor, m_endColor, Timer/time));
             yield return null;
             Timer += Time.deltaTime;
@@ -84,11 +82,9 @@ public class ObjectController : MonoBehaviour
         this.gameObject.transform.rotation = Quaternion.Euler(m_fromTheRightAngle);
     }
 
-    private float Distance( Vector3 to)
+    private float Distance( Vector3 to )
     {
         return Mathf.Abs((to - m_fromTheRightAngle).magnitude);
     }
-
-
     
 }
